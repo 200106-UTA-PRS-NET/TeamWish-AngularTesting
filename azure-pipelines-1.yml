@@ -25,3 +25,11 @@ steps:
     ng build --prod
   workingDirectory: $(pathtosolution)
   displayName: 'npm install and build'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'AngularSonar'
+    organization: 'angulartesting'
+    scannerMode: 'MSBuild'
+    projectKey: 'angtesting'
+    projectName: 'angtester'
